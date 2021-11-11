@@ -246,3 +246,6 @@ def key_in_swim_lengths(key: str)->bool:
     "length_type"
   ]
   return key in keys
+
+if __name__ == '__main__':
+  main()
