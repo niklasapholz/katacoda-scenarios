@@ -4,7 +4,7 @@ Now we will set up our tables and upload our fit-file.
 
 First we will have a look at our tables.
 
-`katacoda-scenario-examples/fit_data_to_db/setup.sql`{{open}}
+`katacoda-scenarios/fit_data_to_db/setup.sql`{{open}}
 
 You can see all the tables and columns we need to save or example file (a swimming session).
 
@@ -12,7 +12,7 @@ Edit the last line and insert a user.
 
 Since it is hard to setup python in this environment, we will use a container to insert our file.
 
-Have a look at the Dockerfile `katacoda-scenario-examples/fit_data_to_db/Dockerfile`{{open}}
+Have a look at the Dockerfile `katacoda-scenarios/fit_data_to_db/Dockerfile`{{open}}
 
 Lets build and run it!
 
