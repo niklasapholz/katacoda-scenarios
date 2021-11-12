@@ -18,6 +18,12 @@ Lets build and run it!
 
 `docker build -t our-app .`{{execute}}
 
-`docker container run --name our-app --net my-network our-app`{{execute}}
+`docker container run --name our-app --net my-network --rm our-app`{{execute}}
 
 If you are interested how the data is structured and how the insert works, look at the `our_app.py`{{open}} and `example_fit.json`{{open}}.
+
+You can see the results with another container if you can want to.
+
+`docker container run -p 80:80 --name pg -e PGADMIN_DEFAULT_PASSWORD=supersicher -e PGADMIN_DEFAULT_EMAIL=max.mustermann@gmx.de --net my-network -d dpage/pgadmin4`{{execute}}
+
+Open the host with the Terminal-Plus-Symbol and use the user and password provided by the run command. Connect to the database with host: database, user:postgres, password: supersicher. Now you can have a look at all tables.

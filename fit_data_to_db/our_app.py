@@ -7,16 +7,21 @@ def main()->None:
   db_conn = connect_to_db()
   # create our tables
   create_tables(db_conn)
+  db_conn.close()
   # read our data
   with open('example_fit.json', 'r') as json_file:
     training = json.load(json_file)
   # upload activity
   upload_swim(training)
   # check result
+  db_conn = connect_to_db()
   db_cur = db_conn.cursor()
-  result = db_cur.execute('SELECT COUNT(*) FROM lengths;')
-  print("We inserted", result, "legnths!")
+  db_cur.execute('SELECT COUNT(*) FROM length;')
+  result = db_cur.fetchone()
+  print("We inserted", result[0], "legnths!")
   print("Congratiolations, you did it!")
+  db_cur.close()
+  db_conn.close()
 
 def connect_to_db():
   conn = psycopg2.connect(
@@ -44,7 +49,7 @@ def upload_swim(training: dict)->None:
   db_cur = db_conn.cursor()
   training_id = upload_activity(db_cur, training_data[message_map['activity'][0]])
   session_lap_info = upload_swim_sessions(db_cur, training_data[message_map['session'][0]], training_id)
-  laps_with_timestamp = upload_swim_laps(db_cur, training_data, message_map['lap'], session_lap_info)
+  upload_swim_laps(db_cur, training_data, message_map['lap'], session_lap_info)
   upload_swim_lengths(db_cur, training_data, message_map['length'])
   # do not commit earlier, since everything depends on each other
   db_conn.commit()
