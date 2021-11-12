@@ -6,7 +6,7 @@ First we will have a look at our tables.
 
 `katacoda-scenarios/fit_data_to_db/setup.sql`{{open}}
 
-You can see all the tables and columns we need to save or example file (a swimming session).
+You can see all the tables and columns we need to save our example file (a swimming session).
 
 Edit the last line and insert a user.
 
@@ -20,7 +20,7 @@ Lets build and run it!
 
 `docker container run --name our-app --net my-network --rm our-app`{{execute}}
 
-If you are interested how the data is structured and how the insert works, look at the `our_app.py`{{open}} and `example_fit.json`{{open}}.
+If you are interested how the data is structured and how the insert works, look at the `katacoda-scenarios/fit_data_to_db/our_app.py`{{open}} and `katacoda-scenarios/fit_data_to_db/example_fit.json`{{open}}.
 
 You can see the results with another container if you can want to.
 

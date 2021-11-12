@@ -109,4 +109,4 @@ CREATE TABLE IF NOT EXISTS length (
       ON DELETE CASCADE
 );
 
-INSERT INTO users (name, surname) VALUES (, );
+INSERT INTO users (name, surname) VALUES ('','');
