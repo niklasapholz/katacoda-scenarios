@@ -1,8 +1,8 @@
 {
   "title": "Upload Fit Data to PostgreSQL",
   "description": "Upload Fit Data (JSON) to a PostgreSQL instance",
-  "difficulty": "Beginner",
-  "time": "60 minutes",
+  "difficulty": "Intermediate",
+  "time": "30 minutes",
   "details": {
     "steps": [
       {

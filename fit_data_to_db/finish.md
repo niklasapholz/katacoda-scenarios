@@ -1,3 +1,3 @@
-Congratulations, you did it! 
+Gut gemacht!
 
-Now you can enjoy your day knowing how to insert JSON-data into a postgreSQL instance.
+Du solltest nun in der Lage sein konzeptionell beschreiben zu können, wie es möglich ist IoT-Daten in einer Datenbank zu persistieren. Bei weiterem Interesse am FIT-Protokoll lohnt sich die Dokumentation von Garmin: https://developer.garmin.com/fit/protocol/.

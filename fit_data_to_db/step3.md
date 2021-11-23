@@ -1,29 +1,31 @@
-Now we will set up our tables and upload our fit-file.
+In diesem Schritt werden die Datenbanktabellen erstellt und die Beispiel-Datei in die Datenbank geschrieben.
 
 ## Task
 
-First we will have a look at our tables.
+Betrachte zuerst die Tabellen-Strukturen.
 
 `katacoda-scenarios/fit_data_to_db/setup.sql`{{open}}
 
-You can see all the tables and columns we need to save our example file (a swimming session).
+Dies sind alle Tabellen und Spalten die nötig sind, um die Beispiel-Datei zu speichern (in dem Beispiel handelt es sich um ein Schwimmtraining).
 
-Edit the last line and insert a user.
+Trage in der letzten Zeile einen User ein, um fortzufahren.
 
-Since it is hard to setup python in this environment, we will use a container to insert our file.
+Da die Datenbank in einem Container läuft, wird das Python-Script zum Einfügen der Daten ebenfalls in einem Container gestartet.
 
-Have a look at the Dockerfile `katacoda-scenarios/fit_data_to_db/Dockerfile`{{open}}
+Bei bestehendem Interesse kann der Dockerfile eingesehen `katacoda-scenarios/fit_data_to_db/Dockerfile`{{open}} und weitere Informationen in der offiziellen Dokumentation nachgesehen werden: https://docs.docker.com/engine/reference/builder/.
 
-Lets build and run it!
+Um den Container zu nutzen, muss er zunächst gebaut werden.
 
 `docker build -t our-app .`{{execute}}
 
+Nun kann der Container gestartet werden.
+
 `docker container run --name our-app --net my-network --rm our-app`{{execute}}
 
-If you are interested how the data is structured and how the insert works, look at the `katacoda-scenarios/fit_data_to_db/our_app.py`{{open}} and `katacoda-scenarios/fit_data_to_db/example_fit.json`{{open}}.
+Die Datenstruktur des Beispiel-JSONs kann eingesehen werden `katacoda-scenarios/fit_data_to_db/example_fit.json`{{open}}. Das Einfügen in die Datenbank lässt sich anhand des Programmcodes nachvollziehen `katacoda-scenarios/fit_data_to_db/our_app.py`{{open}}.
 
-You can see the results with another container if you can want to.
+Bei bestehendem Interesse kann ein PGadmin-Container genutzt werden, um die Ergebnisse in der Datenbank zu betrachtet. Dies setzt minimale SQL-Kenntnisse voraus.
 
 `docker container run -p 80:80 --name pg -e PGADMIN_DEFAULT_PASSWORD=supersicher -e PGADMIN_DEFAULT_EMAIL=max.mustermann@gmx.de --net my-network -d dpage/pgadmin4`{{execute}}
 
-Open the host with the Terminal-Plus-Symbol and use the user and password provided by the run command. Connect to the database with host: database, user:postgres, password: supersicher. Now you can have a look at all tables.
+Um auf PGadmin zuzugreifen, kann im Terminalfenster die Optione `View HTTP port 80 on Host 1` ausgewählt werden. Die Nutzerdaten sind im obigen Docker-Commando angegeben. Die Verbindung zum Datenbankserver benötigt folgende Daten host: database, user: postgres, password: supersicher.

@@ -1,14 +1,14 @@
-First of all we want to give you all the files you need.
+Zuerst müssen die Dateien für diese Übung geladen werden.
 
 ## Task
 
-Therefore start with cloning the repository corresponding with this lesson.
+Die Dateien sind im Repository dieses Katacodas hinterlegt.
 
 `git clone https://github.com/niklasapholz/katacoda-scenarios.git`{{execute}}
 
-Switch directories into the repository and you find a few python scripts and an example JSON.
+Wechsel in das neue Verzeichnis, welches soeben erstellt wurde. Hier sind alle Python-Scripte und JSON-Dateien, die für die Übung benötigt werden.
 
 `cd katacoda-scenarios/fit_data_to_db`{{execute}}
 
-Now we finished our preparation! In the next step we will start our PostgreSQL.
+Das war die Vorbereitung. Im nächsten Schritt wird die Datenbank aufgesetzt.
 

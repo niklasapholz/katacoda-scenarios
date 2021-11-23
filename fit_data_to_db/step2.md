@@ -1,21 +1,21 @@
-Now it is time to get our PostgreSQL up and running. Since we do not want install postgres and all its dependencies, we will use docker container.
+Nun kann die Datenbank aufgesetzt werden. Um den Arbeitsaufwand überschaubar zu halten, werden im Folgenden Docker-Container benutzt.
 
 ## Task
 
-First we create a network for the container communicate.
+Damit die Container untereinander kommunizieren können, muss zunächst ein Netzwerk aufgesetzt werden.
 
 `docker network create -d bridge my-network`{{execute}}
 
-Than we start our database.
+Danach kann die PostgreSQL-Instance gestartet werden. Dabei ist darauf zu achten, dass sie in dem eben erschaffenen Netzwerk gestartet wird.
 
 `docker container run --name database -e POSTGRES_PASSWORD=supersicher --net my-network -d postgres:14.0`{{execute}}
 
-You can check whether the database is running with
+Kontrolliere ob die Datenbank läuft
 
 `docker ps`{{execute}}
 
-and check the logs with
+und verfolge die Logs um zu wissen, wann die Datenbank fertig gestartet ist.
 
 `docker logs -f database`{{execute}}
 
-Next we will write our fit-data to the database.
+Weiter Informationen bezüglich der Datenbank und des Docker-Images sind unter https://hub.docker.com/_/postgres zu finden.
